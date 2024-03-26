@@ -35,8 +35,7 @@ describe("Market Place Test", function(){
 
         await marketPlace.connect(seller).newProduct("Greedy", "nice song", "Ariana Grande", "idk"); // id 1
         await marketPlace.connect(seller).newSale(1, 4); // id2
-        await value =
-        await marketPlace.connect(buyer).buyProduct(2,5);
+        await marketPlace.connect(buyer).buyProduct(2,{value: 5000000});
 
         const product = await marketPlace.connect(seller).getProduct(1);
         expect(product.owner).to.equal(buyer.address);
